@@ -71,7 +71,7 @@ SUBJECT = (
 
 # Minimal assertion for Google Apps:
 ASSERTION_GOOGLE_APPS = (
-    '<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" '
+    '<saml:Assertion '
             'ID="${ASSERTION_ID}" '
             'IssueInstant="${ISSUE_INSTANT}" '
             'Version="2.0">'
@@ -92,7 +92,7 @@ ASSERTION_GOOGLE_APPS = (
 
 # Minimal assertion for SalesForce:
 ASSERTION_SALESFORCE = (
-    '<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" '
+    '<saml:Assertion '
             'ID="${ASSERTION_ID}" '
             'IssueInstant="${ISSUE_INSTANT}" '
             'Version="2.0">'
@@ -118,12 +118,13 @@ ASSERTION_SALESFORCE = (
 # Minimal response:
 RESPONSE = (
     '<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" '
+                    'xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" '
                     'Destination="${ACS_URL}" '
                     'ID="${RESPONSE_ID}" '
                     '${IN_RESPONSE_TO}'
                     'IssueInstant="${ISSUE_INSTANT}" '
                     'Version="2.0">'
-        '<saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">${ISSUER}</saml:Issuer>'
+        '<saml:Issuer>${ISSUER}</saml:Issuer>'
         '${RESPONSE_SIGNATURE}'
         '<samlp:Status>'
             '<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"></samlp:StatusCode>'
