@@ -1,12 +1,12 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-from django.conf.urls import patterns, include
-
+import django.contrib.auth.views
+from django.conf.urls import include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Example:
     # (r'^idptest/', include('idptest.foo.urls')),
 
@@ -15,11 +15,11 @@ urlpatterns = patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    (r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
     # Required for login:
-    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^accounts/login/$', django.contrib.auth.views.login),
 
     # URLs for the IDP:
-    (r'^idp/', include('saml2idp.urls')),
-)
+    url(r'^idp/', include('saml2idp.urls')),
+]

@@ -19,7 +19,7 @@ setup(
     description='SAML 2.0 IdP for Django',
     long_description='\n\n'.join([description, changelog]),
     install_requires=[
-        'Django>=1.4',
+        'Django>=1.8',
         'pyopenssl>=0.16',
         'BeautifulSoup4>=4.4.0',
         'lxml',
